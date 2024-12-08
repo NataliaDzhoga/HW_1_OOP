@@ -12,7 +12,9 @@ class Student:
 
     def rate_courses(self, lector, course, grade):
         if isinstance(lector, Lecturer) and course in lector.courses_attached and course in self.finished_courses:
-            if course in lector.grades_courses:
+            if grade <0 or grade >10:
+                return 'Ошибка'
+            elif course in lector.grades_courses:
                 lector.grades_courses[course] += [grade]
             else:
                 lector.grades_courses[course] = [grade]
